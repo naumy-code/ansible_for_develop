@@ -1,0 +1,7 @@
+- name: test win_file module
+  hosts: windows
+  tasks:
+    - name: Create directory structure
+      ansible.windows.win_file:
+        path: C:\Temp\folder\subfolder
+        state: directory

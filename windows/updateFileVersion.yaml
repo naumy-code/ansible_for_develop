@@ -1,0 +1,14 @@
+- name: Update burner version 
+  hosts: windows
+  vars:
+    - burner_version: HiTrend_Flash_Programmer_int_v2.72.exe
+  tasks:
+    - name: Delete old burner
+      win_file:
+        path: D:\Jenkins\HFP.exe
+        state: absent
+        
+    - name: Copy new burner
+      win_copy:
+        src: /home/user/work/ansible/burner/{{burner_version}}
+        dest: D:\Jenkins\HFP.exe
